@@ -18,8 +18,12 @@
 </template>
 <script>
     import { reactive } from 'vue'
+    import { Button } from 'vant'
     export default {
         name: 'About',
+        components: {
+            Button
+        },
         setup() {
             const state = reactive({
                 count: 5

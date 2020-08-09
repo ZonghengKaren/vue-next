@@ -1,23 +1,16 @@
 <template>
   <div class="store">
-    <p>{{ data }}</p>
+    <p ref="data">{{ data }}</p>
     <button @click="actClick">click</button>
   </div>
 </template>
 <script>
-    import { getCurrentInstance, reactive, computed, onMounted } from 'vue'
+    import { getCurrentInstance, computed } from 'vue'
     export default {
         name: 'About',
         setup() {
             const { ctx } = getCurrentInstance(),
                   store = ctx.$store;
-
-            const state = reactive({
-                data: '333'
-            })
-            onMounted( () => {
-                console.log(state.data, store.state.Vuextest.data);
-            })
             const actClick = () => {
                 store.commit('Vuextest/updateData', '99999999')
             }
